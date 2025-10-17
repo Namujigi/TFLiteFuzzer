@@ -1,5 +1,14 @@
-# Installation Requirements
-### Google FlatBuffers (v25.9.23)
+# Installation
+## Requirements
+<br>
+
+``` bash
+mkdir include
+mkdir lib
+```
+<br>
+
+### 1. Google FlatBuffers (v25.9.23)
 ``` bash
 git clone https://github.com/google/flatbuffers.git
 cd flatbuffers
@@ -18,8 +27,9 @@ flatc --version
 
 cp ./libflatbuffers.a <project_root_dir>/lib/libflatbuffers.a
 ```
+<br>
 
-### TensorFlow lite (v2.20.0)
+### 2. TensorFlow lite (v2.20.0)
 ``` bash
 # LiteRT CMAKE 오류로 다른 방법 선택.
 git clone https://github.com/tensorflow/tensorflow.git tensorflow_src
@@ -35,4 +45,32 @@ bazel build -c opt --cxxopt='--std=c++17' --fat_apk_cpu=x86_64 tensorflow/lite:l
 cp ./bazel-bin/tensorflow/lite/libtensorflowlite.so <project_root_dir>/lib/libtensorflowlite.so
 
 cp -r ./tensorflow <project_root_dir>/include/tensorflow
+```
+<br>
+
+## Build & Run Example
+
+### TFLite C++ API build
+```bash
+mkdir build
+cd bulid
+
+cmake ..
+cmake --build . -j$(nproc)
+```
+
+### TFLite C++ API run
+``` bash
+cd build
+./run_test
+
+# Model path: /home/username/TFLiteFuzzer/tflite_cpp_api/cifar10_model.tflite
+# Dataset path: /home/username/TFLiteFuzzer/tflite_cpp_api/cifar10_test_dataset/cifar10_test_images
+# ✅ Loaded 10000 test images info.
+# INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+# ✅ TFLite model initialized.
+#
+# --- 🎯 Final Result ---
+# Accuracy: 10.02%
+# ----------------------
 ```
