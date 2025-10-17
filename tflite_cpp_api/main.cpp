@@ -5,13 +5,15 @@
 #include <algorithm>
 
 // LiteRT 헤더
-#include "tflite/interpreter.h"
-#include "tflite/kernels/register.h"
-#include "tflite/model.h"
+#include "tensorflow/lite/interpreter.h"
+#include "tensorflow/lite/kernels/register.h"
+#include "tensorflow/lite/model.h"
 
 // OpenCV 헤더
 #include "opencv2/opencv.hpp"
 
+#define TOSTRING(x) x
+const std::string PROJECT_ROOT = TOSTRING(PROJECT_ROOT_PATH);
 
 // CSV 파일에서 (이미지 경로, 라벨) 목록을 읽는 함수
 std::vector<std::pair<std::string, int>> load_dataset_from_csv(
@@ -38,9 +40,12 @@ std::vector<std::pair<std::string, int>> load_dataset_from_csv(
 
 int main() {
     // --- 1. 설정 및 경로 정의 ---
-    const char* model_path = "cifar_10_model.tflite";
-    const std::string image_dir = "cifar10_test_dataset/cifar10_test_images";
-    const std::string csv_path = "cifar10_test_dataset/labels.csv";
+    const std::string model_path = PROJECT_ROOT + "/cifar10_model.tflite";
+    const std::string image_dir = PROJECT_ROOT + "/cifar10_test_dataset/cifar10_test_images";
+    const std::string csv_path = PROJECT_ROOT + "/cifar10_test_dataset/labels.csv";
+
+    std::cout << "Model path: " << model_path << '\n';
+    std::cout << "Dataset path: " << image_dir << '\n';
 
     // 모델 입력 사양 (CIFAR-10)
     const int input_height = 32;
@@ -56,7 +61,7 @@ int main() {
     std::cout << "✅ Loaded " << test_dataset.size() << " test images info." << std::endl;
 
     // --- 3. TFLite 모델 초기화 ---
-    std::unique_ptr<tflite::FlatBufferModel> model = tflite::FlatBufferModel::BuildFromFile(model_path);
+    std::unique_ptr<tflite::FlatBufferModel> model = tflite::FlatBufferModel::BuildFromFile(model_path.c_str());
     tflite::ops::builtin::BuiltinOpResolver resolver;
     std::unique_ptr<tflite::Interpreter> interpreter;
     tflite::InterpreterBuilder(*model, resolver)(&interpreter);
