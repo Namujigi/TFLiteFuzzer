@@ -40,7 +40,7 @@ std::vector<std::pair<std::string, int>> load_dataset_from_csv(
 
 int main() {
     // --- 1. 설정 및 경로 정의 ---
-    const std::string model_path = PROJECT_ROOT + "/cifar10_model.tflite";
+    const std::string model_path = PROJECT_ROOT + "/model.tflite";
     const std::string image_dir = PROJECT_ROOT + "/cifar10_test_dataset/cifar10_test_images";
     const std::string csv_path = PROJECT_ROOT + "/cifar10_test_dataset/labels.csv";
 

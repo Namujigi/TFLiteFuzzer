@@ -1,4 +1,4 @@
-# Install script for directory: /home/aflplusplus/tflite_afl_connect
+# Install script for directory: /home/namujigi/graduation_project/TFLiteFuzzer/tflite_afl_connect
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/aflplusplus/tflite_afl_connect/build_debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/namujigi/graduation_project/TFLiteFuzzer/tflite_afl_connect/build_debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,0 +1,10 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=./release_mode
+AFL_CUSTOM_INFO_PROGRAM_ARGV=@@ ../../tflite_cpp_api_test/cifar10_test_dataset/cifar10_test_images/00000.png
+AFL_CUSTOM_INFO_OUT=../out//default
+AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+AFL_TRY_AFFINITY=1
+AFL_SKIP_CPUFREQ=1
+AFL_TESTCACHE_SIZE=128
+# command line:
+'afl-fuzz' '-i' '../examples/' '-o' '../out/' '-s' '123' '-G' '30000000' '-t' '3600000' '--' './release_mode' '@@' '../../tflite_cpp_api_test/cifar10_test_dataset/cifar10_test_images/00000.png'
