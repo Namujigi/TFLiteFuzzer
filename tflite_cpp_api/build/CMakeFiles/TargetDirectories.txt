@@ -1,3 +1,0 @@
-/home/namujigi/graduation_project/TFLiteFuzzer/tflite_cpp_api/build/CMakeFiles/run_test.dir
-/home/namujigi/graduation_project/TFLiteFuzzer/tflite_cpp_api/build/CMakeFiles/edit_cache.dir
-/home/namujigi/graduation_project/TFLiteFuzzer/tflite_cpp_api/build/CMakeFiles/rebuild_cache.dir
