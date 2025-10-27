@@ -7,6 +7,8 @@ set(CMAKE_C_COMPILER "gcc")
 set(CMAKE_CXX_COMPILER "g++")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS "-g -O0 -ggdb3")
+set(CMAKE_C_FLAGS "-g -O0 -ggdb3")
 
 find_package(OpenCV REQUIRED)
 if(NOT OpenCV_FOUND)
@@ -24,6 +26,6 @@ add_executable(debug_mode main.cpp)
 target_link_libraries(debug_mode
     PRIVATE
     ${OpenCV_LIBS}
-    tensorflowlite
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib_debug/libtensorflowlite.so
     ${CMAKE_CURRENT_SOURCE_DIR}/lib_debug/libflatbuffers.a
 )

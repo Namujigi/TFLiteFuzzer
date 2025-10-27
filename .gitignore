@@ -1,1 +1,4 @@
 .gdb_history
+flatbuffers/
+tensorflow/
+tensorflow_src/

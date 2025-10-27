@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/namujigi/graduation_project/TFLiteFuzzer/tflite_afl_connect/../tflite_cpp_api_test/include -isystem /usr/include/opencv4
 
-CXX_FLAGS = -g -std=gnu++17
+CXX_FLAGS = -g -O0 -ggdb3 -g -std=gnu++17
 

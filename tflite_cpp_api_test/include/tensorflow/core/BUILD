@@ -493,7 +493,6 @@ cc_library(
         "@local_tsl//tsl/platform:framework_lite_hdrs",
         "@local_xla//xla/tsl/framework:numeric_types.h",
         "@local_xla//xla/tsl/framework:type_traits.h",
-        "@local_xla//xla/tsl/platform/default:integral_types.h",
     ],
     visibility = ["//visibility:public"],
     deps = [
@@ -1537,7 +1536,6 @@ cc_library(
     hdrs = [
         "//tensorflow/core/platform:tflite_portable_logging_hdrs",
         "@local_tsl//tsl/platform:tflite_portable_logging_hdrs",
-        "@local_xla//xla/tsl/platform/default:integral_types.h",
     ],
     compatible_with = get_compatible_with_portable(),
     copts = tf_copts(),
@@ -1938,21 +1936,15 @@ tf_cc_tests(
 )
 
 tf_cc_tests(
-    name = "cell_reader_test",
+    name = "test_utils_test",
     size = "small",
     srcs = [
-        "//tensorflow/core/lib/monitoring:cell_reader_test.cc",
         "//tensorflow/core/lib/monitoring:test_utils_test.cc",
     ],
     deps = [
         ":protos_all_cc",
         ":test",
         ":test_main",
-        "//tensorflow/core/lib/monitoring:cell_reader",
-        "//tensorflow/core/lib/monitoring:counter",
-        "//tensorflow/core/lib/monitoring:gauge",
-        "//tensorflow/core/lib/monitoring:percentile_sampler",
-        "//tensorflow/core/lib/monitoring:sampler",
         "//tensorflow/core/lib/monitoring:test_utils",
         "//tensorflow/core/lib/monitoring:types",
         "//tensorflow/core/platform:errors",
