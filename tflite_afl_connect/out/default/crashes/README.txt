@@ -1,6 +1,6 @@
 Command line used to find this crash:
 
-afl-fuzz -i ../examples/ -o ../out/ -s 123 -G 30000000 -t 3600000 -- ./release_mode @@ ../../tflite_cpp_api_test/cifar10_test_dataset/cifar10_test_images/00000.png
+afl-fuzz -i ../examples/ -o ../out/ -s 111 -G 30000000 -t 3600000 -- ./release_mode @@ ../../tflite_cpp_api_test/cifar10_test_dataset/cifar10_test_images/00000.png
 
 If you can't reproduce a bug outside of afl-fuzz, be sure to set the same
 memory limit. The limit used for this fuzzing session was 0 B.

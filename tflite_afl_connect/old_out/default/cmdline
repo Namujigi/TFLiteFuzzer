@@ -1,0 +1,3 @@
+./release_mode
+@@
+../../tflite_cpp_api_test/cifar10_test_dataset/cifar10_test_images/00000.png
